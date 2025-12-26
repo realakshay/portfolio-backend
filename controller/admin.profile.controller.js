@@ -119,7 +119,6 @@ const insertTestimonialInfo = async (req, res) => {
 };
 
 const updatePersonalInfo = async (req, res) => {
-  // Implementation for updating personal info
   try {
     await Personal.findOneAndUpdate(
       {},
@@ -134,6 +133,21 @@ const updatePersonalInfo = async (req, res) => {
   }
 };
 
+const updateSkillsInfo = async (req, res) => {
+  try {
+    await Skill.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body },
+      { new: true, upsert: true, runValidators: true }
+    );
+    res
+      .status(200)
+      .json({ message: "Skills information updated successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 module.exports = {
   insertPersonalInfo,
   insertSkillsInfo,
@@ -142,4 +156,5 @@ module.exports = {
   insertProjectInfo,
   insertTestimonialInfo,
   updatePersonalInfo,
+  updateSkillsInfo,
 };
