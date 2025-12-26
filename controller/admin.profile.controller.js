@@ -2,6 +2,7 @@ const Personal = require('../models/Personal');
 const Skill = require('../models/Skill');
 const Education = require('../models/Education');
 const Experience = require('../models/Experience');
+const Project = require('../models/Project');
 
 const insertPersonalInfo = async (req, res) => {
     const { fName, lName, mobile, email, linkedIn, github, shortBio, longBio } = req.body;
@@ -71,4 +72,22 @@ const insertExperienceInfo = async (req, res) => {
     }
 }
 
-module.exports = { insertPersonalInfo, insertSkillsInfo, insertEducationInfo, insertExperienceInfo };
+const insertProjectInfo = async (req, res) => {
+    const { title, subtitle, desc, tags, link } = req.body;
+    try {
+        const project = new Project({
+            title,
+            subtitle,
+            desc,
+            tags,
+            link
+        });
+        await project.save();
+        res.status(201).json({ message: "Project information inserted successfully" });
+    }catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
+}
+
+
+module.exports = { insertPersonalInfo, insertSkillsInfo, insertEducationInfo, insertExperienceInfo, insertProjectInfo };
