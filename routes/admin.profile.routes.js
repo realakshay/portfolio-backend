@@ -11,6 +11,7 @@ const {
   updateEducationInfo,
   updateExperienceInfo,
   updateProjectInfo,
+  updateTestimonialInfo,
 } = require("../controller/admin.profile.controller");
 const router = express.Router();
 
@@ -26,5 +27,6 @@ router.put("/update/skill/:id", updateSkillsInfo);
 router.put("/update/education/:id", updateEducationInfo);
 router.put("/update/experience/:id", updateExperienceInfo);
 router.put("/update/project/:id", updateProjectInfo);
+router.put("/update/testimonial/:id", updateTestimonialInfo);
 
 module.exports = router;
