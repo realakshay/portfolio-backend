@@ -163,6 +163,21 @@ const updateEducationInfo = async (req, res) => {
     }
 }
 
+const updateExperienceInfo = async (req, res) => {
+    try {
+        await Experience.findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        { new: true, upsert: true, runValidators: true }
+      );
+        res
+        .status(200)
+        .json({ message: "Experience information updated successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
+}
+
 module.exports = {
   insertPersonalInfo,
   insertSkillsInfo,
@@ -173,4 +188,5 @@ module.exports = {
   updatePersonalInfo,
   updateSkillsInfo,
   updateEducationInfo,
+  updateExperienceInfo,
 };
