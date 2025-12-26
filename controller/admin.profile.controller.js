@@ -105,5 +105,10 @@ const insertTestimonialInfo = async (req, res) => {
     }
 }
 
+const updatePersonalInfo = async (req, res) => {
+    // Implementation for updating personal info
+    
+
+}
 
 module.exports = { insertPersonalInfo, insertSkillsInfo, insertEducationInfo, insertExperienceInfo, insertProjectInfo, insertTestimonialInfo };
