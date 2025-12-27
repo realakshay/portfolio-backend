@@ -208,6 +208,51 @@ const updateTestimonialInfo = async (req, res) => {
     }
 }
 
+const deleteSkill = async (req, res) =>{
+    try{
+        await Skill.deleteOne({_id: req.params.id});
+        res.status(200).json({ message: "Skill deleted successfully"});
+    }catch(error){
+        res.status(500).json({ message: "Server Error" });
+    }
+}
+
+const deleteEducation = async (req, res) =>{
+    try{
+        await Education.deleteOne({_id: req.params.id});
+        res.status(200).json({ message: "Education deleted successfully" });
+    }catch(error){
+        res.status(500).json({ message: "Server Error" })
+    }
+}
+
+const deleteExperience = async (req, res) =>{
+    try {
+        await Experience.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: "Experience deleted successfully" })
+    }catch(error){
+        res.status(500).json({ message: "Server Error" })
+    }
+}
+
+const deleteProject = async (req, res) =>{
+    try {
+        await Project.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: "Project deleted successfully" })
+    }catch(error){
+        res.status(500).json({ message: "Server Error" })
+    }
+}
+
+const deleteTestimonial = async (req, res) =>{
+    try {
+        await Testimonial.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: "Testimonial deleted successfully" })
+    }catch(error){
+        res.status(500).json({ message: "Server Error" })
+    }
+}
+
 module.exports = {
   insertPersonalInfo,
   insertSkillsInfo,
@@ -221,4 +266,9 @@ module.exports = {
   updateExperienceInfo,
   updateProjectInfo,
   updateTestimonialInfo,
+  deleteSkill,
+  deleteEducation,
+  deleteExperience,
+  deleteProject,
+  deleteTestimonial
 };

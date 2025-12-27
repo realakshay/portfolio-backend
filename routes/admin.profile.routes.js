@@ -12,6 +12,11 @@ const {
   updateExperienceInfo,
   updateProjectInfo,
   updateTestimonialInfo,
+  deleteSkill,
+  deleteEducation,
+  deleteExperience,
+  deleteProject,
+  deleteTestimonial
 } = require("../controller/admin.profile.controller");
 const router = express.Router();
 
@@ -28,5 +33,11 @@ router.put("/update/education/:id", updateEducationInfo);
 router.put("/update/experience/:id", updateExperienceInfo);
 router.put("/update/project/:id", updateProjectInfo);
 router.put("/update/testimonial/:id", updateTestimonialInfo);
+
+router.delete("/delete/skill/:id", deleteSkill);
+router.delete("/delete/education/:id", deleteEducation);
+router.delete("/delete/experience/:id", deleteExperience);
+router.delete("/delete/project/:id", deleteProject);
+router.delete("/delete/testimonial/:id", deleteTestimonial);
 
 module.exports = router;
