@@ -18,7 +18,7 @@ const insertPersonalInfo = async (req, res) => {
   }
 };
 
-const insertSkillsInfo = async (req, res) => {
+const createSkill = async (req, res) => {
   const { name, iconName, color } = req.body;
   try {
     const skill = new Skill({
@@ -35,7 +35,7 @@ const insertSkillsInfo = async (req, res) => {
   }
 };
 
-const insertEducationInfo = async (req, res) => {
+const createEducation = async (req, res) => {
   const { title, university, date, description } = req.body;
   try {
     const education = new Education({
@@ -53,7 +53,7 @@ const insertEducationInfo = async (req, res) => {
   }
 };
 
-const insertExperienceInfo = async (req, res) => {
+const createExperience = async (req, res) => {
   const { title, company, date, description, companyNumber } = req.body;
   try {
     const experience = new Experience({
@@ -72,7 +72,7 @@ const insertExperienceInfo = async (req, res) => {
   }
 };
 
-const insertProjectInfo = async (req, res) => {
+const createProject = async (req, res) => {
   const { title, subtitle, desc, tags, link } = req.body;
   try {
     const project = new Project({
@@ -91,7 +91,7 @@ const insertProjectInfo = async (req, res) => {
   }
 };
 
-const insertTestimonialInfo = async (req, res) => {
+const createTestimonial = async (req, res) => {
   const { quote, author, company } = req.body;
   try {
     const testimonial = new Testimonial({
@@ -123,7 +123,7 @@ const updatePersonalInfo = async (req, res) => {
   }
 };
 
-const updateSkillsInfo = async (req, res) => {
+const updateSkill = async (req, res) => {
   try {
     await Skill.findOneAndUpdate(
       { _id: req.params.id },
@@ -138,7 +138,7 @@ const updateSkillsInfo = async (req, res) => {
   }
 };
 
-const updateEducationInfo = async (req, res) => {
+const updateEducation = async (req, res) => {
   try {
     await Education.findOneAndUpdate(
       { _id: req.params.id },
@@ -153,7 +153,7 @@ const updateEducationInfo = async (req, res) => {
   }
 };
 
-const updateExperienceInfo = async (req, res) => {
+const updateExperience = async (req, res) => {
   try {
     await Experience.findOneAndUpdate(
       { _id: req.params.id },
@@ -168,7 +168,7 @@ const updateExperienceInfo = async (req, res) => {
   }
 };
 
-const updateProjectInfo = async (req, res) => {
+const updateProject = async (req, res) => {
   try {
     await Project.findOneAndUpdate(
       { _id: req.params.id },
@@ -183,7 +183,7 @@ const updateProjectInfo = async (req, res) => {
   }
 };
 
-const updateTestimonialInfo = async (req, res) => {
+const updateTestimonial = async (req, res) => {
   try {
     await Testimonial.findOneAndUpdate(
       { _id: req.params.id },
@@ -224,7 +224,7 @@ const deleteEducation = async (req, res) => {
 
 const deleteExperience = async (req, res) => {
   try {
-    const deleted = await Education.findByIdAndDelete(req.params.id);
+    const deleted = await Experience.findByIdAndDelete(req.params.id);
     if (!deleted) {
       return res.status(404).json({ message: "Experience not found" });
     }
@@ -236,7 +236,7 @@ const deleteExperience = async (req, res) => {
 
 const deleteProject = async (req, res) => {
   try {
-    const deleted = await Education.findByIdAndDelete(req.params.id);
+    const deleted = await Project.findByIdAndDelete(req.params.id);
     if (!deleted) {
       return res.status(404).json({ message: "Project not found" });
     }
@@ -248,7 +248,7 @@ const deleteProject = async (req, res) => {
 
 const deleteTestimonial = async (req, res) => {
   try {
-    const deleted = await Education.findByIdAndDelete(req.params.id);
+    const deleted = await Testimonial.findByIdAndDelete(req.params.id);
     if (!deleted) {
       return res.status(404).json({ message: "Testimonial not found" });
     }
@@ -260,17 +260,17 @@ const deleteTestimonial = async (req, res) => {
 
 module.exports = {
   insertPersonalInfo,
-  insertSkillsInfo,
-  insertEducationInfo,
-  insertExperienceInfo,
-  insertProjectInfo,
-  insertTestimonialInfo,
+  createSkill,
+  createEducation,
+  createExperience,
+  createProject,
+  createTestimonial,
   updatePersonalInfo,
-  updateSkillsInfo,
-  updateEducationInfo,
-  updateExperienceInfo,
-  updateProjectInfo,
-  updateTestimonialInfo,
+  updateSkill,
+  updateEducation,
+  updateExperience,
+  updateProject,
+  updateTestimonial,
   deleteSkill,
   deleteEducation,
   deleteExperience,
