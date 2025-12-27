@@ -17,7 +17,7 @@ const {
   deleteExperience,
   deleteProject,
   deleteTestimonial
-} = require("../controller/admin.profile.controller");
+} = require("../controllers/admin.profile.controller");
 const router = express.Router();
 
 router.post("/personal", insertPersonalInfo);

@@ -1,5 +1,5 @@
 const express = require('express');
-const { getCompleteProfile } = require("../controller/profile.controller");
+const { getCompleteProfile } = require("../controllers/profile.controller");
 
 const router = express.Router();
 
