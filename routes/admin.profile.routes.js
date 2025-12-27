@@ -20,24 +20,27 @@ const {
 } = require("../controller/admin.profile.controller");
 const router = express.Router();
 
-router.post("/insert/personal", insertPersonalInfo);
-router.post("/insert/skill", insertSkillsInfo);
-router.post("/insert/education", insertEducationInfo);
-router.post("/insert/experience", insertExperienceInfo);
-router.post("/insert/project", insertProjectInfo);
-router.post("/insert/testimonial", insertTestimonialInfo);
+router.post("/personal", insertPersonalInfo);
+router.put("/personal", updatePersonalInfo);
 
-router.put("/update/personal", updatePersonalInfo);
-router.put("/update/skill/:id", updateSkillsInfo);
-router.put("/update/education/:id", updateEducationInfo);
-router.put("/update/experience/:id", updateExperienceInfo);
-router.put("/update/project/:id", updateProjectInfo);
-router.put("/update/testimonial/:id", updateTestimonialInfo);
+router.post("/skill", insertSkillsInfo);
+router.put("/skill/:id", updateSkillsInfo);
+router.delete("/skill/:id", deleteSkill);
 
-router.delete("/delete/skill/:id", deleteSkill);
-router.delete("/delete/education/:id", deleteEducation);
-router.delete("/delete/experience/:id", deleteExperience);
-router.delete("/delete/project/:id", deleteProject);
-router.delete("/delete/testimonial/:id", deleteTestimonial);
+router.post("/education", insertEducationInfo);
+router.put("/education/:id", updateEducationInfo);
+router.delete("/education/:id", deleteEducation);
+
+router.post("/experience", insertExperienceInfo);
+router.put("/experience/:id", updateExperienceInfo);
+router.delete("/experience/:id", deleteExperience);
+
+router.post("/project", insertProjectInfo);
+router.put("/project/:id", updateProjectInfo);
+router.delete("/project/:id", deleteProject);
+
+router.post("/testimonial", insertTestimonialInfo);
+router.put("/testimonial/:id", updateTestimonialInfo);
+router.delete("/testimonial/:id", deleteTestimonial);
 
 module.exports = router;

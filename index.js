@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
 const profileRoutes = require('./routes/profile.routes');
 const contactRoutes = require('./routes/contact.routes');
 const statRoutes = require('./routes/stat.routes');
@@ -11,6 +12,7 @@ const adminAuthRoutes = require('./routes/admin.auth.routes');
 const adminAuth = require('./middleware/adminAuth');
 
 dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -27,7 +29,7 @@ app.use('/api/stat', statRoutes);
 
 // to have admin operations on profile
 app.use("/api/admin/auth", adminAuthRoutes);
-app.use('/api/admin', adminAuth, adminProfileRoutes);
+app.use('/api/admin/profile', adminAuth, adminProfileRoutes);
 
 mongoose.connect(process.env.MONGODB_URI, {
 }).then(() => {
