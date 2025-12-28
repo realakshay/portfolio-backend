@@ -7,12 +7,12 @@ const Project = require("../models/Project");
 
 const getCompleteProfile = async (req, res) => {
     try{
-        const personal = await Personal.findOne({});
-        const skills = await Skill.find({});
-        const education = await Education.find({});
-        const experience = await Experience.find({});
-        const testimonials = await Testimonial.find({});
-        const projects = await Project.find({});
+        const personal = await Personal.findOne({}).select("-__v");
+        const skills = await Skill.find({}).select("-__v");
+        const education = await Education.find({}).select("-__v");
+        const experience = await Experience.find({}).select("-__v");
+        const testimonials = await Testimonial.find({}).select("-__v");
+        const projects = await Project.find({}).select("-__v");
         res.json({
             personal,
             skills,
