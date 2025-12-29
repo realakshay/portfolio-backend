@@ -14,9 +14,15 @@ const adminAuth = require('./middleware/adminAuth');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://its-realakshay.vercel.app/",
+    "http://localhost:3000"
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.get('/health', (req, res) => {
