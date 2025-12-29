@@ -20,11 +20,13 @@ app.set("trust proxy", 1);
 
 app.use(cors({
   origin: [
-    "https://its-realakshay.vercel.app/",
+    "https://its-realakshay.vercel.app",
     "http://localhost:3000"
   ],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 }));
+
 app.use(express.json());
 
 app.get('/health', (req, res) => {
